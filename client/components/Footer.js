@@ -36,9 +36,9 @@ class SimpleBottomNavigation extends Component {
         showLabels
         className={classes.root}
       >
-          <BottomNavigationButton label="Scenario" icon={<RestoreIcon />} />
-          <BottomNavigationButton label="Character" icon={<FavoriteIcon />} containerElement={<Link to="/characters" />} />
-          <BottomNavigationButton label="Mechanic" icon={<LocationOnIcon />} containerElement={<Link to="/mechanics" />} />
+          <BottomNavigationButton label="Scenario" icon={<RestoreIcon />} component={Link} to="/" />
+          <BottomNavigationButton label="Character" icon={<FavoriteIcon />} component={Link} to="/characters" />
+          <BottomNavigationButton label="Mechanic" icon={<LocationOnIcon />} component={Link} to="/mechanics" />
       </BottomNavigation>
     );
   }
