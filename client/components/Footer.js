@@ -14,6 +14,9 @@ const styles = {
     bottom: '0',
     position: 'absolute',
   },
+  label: {
+    textAlign: 'center'
+  },
 };
 
 class SimpleBottomNavigation extends Component {
@@ -33,7 +36,6 @@ class SimpleBottomNavigation extends Component {
       <BottomNavigation
         value={value}
         onChange={this.handleChange}
-        showLabels
         className={classes.root}
       >
           <BottomNavigationButton label="Scenario" icon={<RestoreIcon />} component={Link} to="/" />
