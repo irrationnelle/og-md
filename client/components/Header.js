@@ -26,8 +26,8 @@ const defaultProps = {
     classes: undefined,
 };
 
-const Header = () => {
-        const classes = this.props.classes;
+const Header = (props) => {
+        const classes = props.classes;
         return (
             <div className={classes.root}>
                 <AppBar position="static">
