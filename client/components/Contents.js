@@ -4,7 +4,7 @@ class Contents extends Component {
     render() {
         return (
             <div>
-                contents             
+                contents
             </div>
         );
     }

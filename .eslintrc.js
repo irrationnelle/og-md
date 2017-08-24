@@ -11,6 +11,7 @@ module.exports = {
         "react/jsx-indent": "off",
         "no-tabs": "off",
         "react/jsx-indent-props": "off",
+        "react/forbid-prop-types": "off",
     }
 };
 
