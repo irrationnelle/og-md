@@ -15,22 +15,28 @@ const styles = {
     position: 'absolute',
   },
   label: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
 };
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
-}
+};
 
 class Footer extends Component {
-  state = {
-    value: 0,
-  };
+  constructor(props) {
+    super(props);
 
-  handleChange = (event, value) => {
+    this.state = {
+      value: 0,
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event, value) {
     this.setState({ value });
-  };
+  }
 
   render() {
     const classes = this.props.classes;
@@ -42,9 +48,24 @@ class Footer extends Component {
         onChange={this.handleChange}
         className={classes.root}
       >
-          <BottomNavigationButton label="Scenario" icon={<ListIcon />} component={Link} to="/" />
-          <BottomNavigationButton label="Character" icon={<FaceIcon />} component={Link} to="/characters" />
-          <BottomNavigationButton label="Mechanic" icon={<AndroidIcon />} component={Link} to="/mechanics" />
+          <BottomNavigationButton
+            label="Scenario"
+            icon={<ListIcon />}
+            component={Link}
+            to="/"
+          />
+          <BottomNavigationButton
+            label="Character"
+            icon={<FaceIcon />}
+            component={Link}
+            to="/characters"
+          />
+          <BottomNavigationButton
+            label="Mechanic"
+            icon={<AndroidIcon />}
+            component={Link}
+            to="/mechanics"
+          />
       </BottomNavigation>
     );
   }
