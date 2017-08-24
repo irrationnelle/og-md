@@ -8,7 +8,7 @@ import Contents from './Contents';
 import CharList from './Character/CharList';
 import MechList from './Mechanic/MechList';
 
-export default (props) => {
+const App = () => {
     return (
         <div>
             <Header />
@@ -23,3 +23,5 @@ export default (props) => {
         </div>
     );
 };
+
+export default App;

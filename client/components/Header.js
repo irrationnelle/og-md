@@ -9,8 +9,6 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/MoreVert';
 import AccountCircleIcon from 'material-ui-icons/AccountCircle';
 
-import { Link } from 'react-router-dom';
-
 const styles = {
   root: {
     width: '100%',
@@ -26,14 +24,9 @@ const propTypes = {
 
 const defaultProps = {
     classes: undefined,
-}
+};
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
-    render() {
+const Header = () => {
         const classes = this.props.classes;
         return (
             <div className={classes.root}>
@@ -52,8 +45,7 @@ class Header extends Component {
                 </AppBar>
             </div>
         );
-    }
-}
+};
 
 Header.propTypes = propTypes;
 Header.defaultProps = defaultProps;

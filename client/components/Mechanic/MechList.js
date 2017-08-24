@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class MechList extends Component {
-    render() {
-        return (
-            <div>
-                MechList                
-            </div>
-        );
-    }
-}
+const MechList = () => {
+    return (
+        <div>
+            MechList
+        </div>
+    );
+};
 
 export default MechList;

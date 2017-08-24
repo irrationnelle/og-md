@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { 
+import {
     BrowserRouter as Router,
-    Route
+    Route,
 } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createBrowserHistory';
 
 import App from './components/App';
 
