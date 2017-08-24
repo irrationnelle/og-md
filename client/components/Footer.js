@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import BottomNavigation, { BottomNavigationButton } from 'material-ui/BottomNavigation';
-import RestoreIcon from 'material-ui-icons/List';
-import FavoriteIcon from 'material-ui-icons/Face';
-import LocationOnIcon from 'material-ui-icons/Android';
+import ListIcon from 'material-ui-icons/List';
+import FaceIcon from 'material-ui-icons/Face';
+import AndroidIcon from 'material-ui-icons/Android';
 
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,11 @@ const styles = {
   },
 };
 
-class SimpleBottomNavigation extends Component {
+const propTypes = {
+    classes: PropTypes.object.isRequired,
+}
+
+class Footer extends Component {
   state = {
     value: 0,
   };
@@ -38,16 +42,14 @@ class SimpleBottomNavigation extends Component {
         onChange={this.handleChange}
         className={classes.root}
       >
-          <BottomNavigationButton label="Scenario" icon={<RestoreIcon />} component={Link} to="/" />
-          <BottomNavigationButton label="Character" icon={<FavoriteIcon />} component={Link} to="/characters" />
-          <BottomNavigationButton label="Mechanic" icon={<LocationOnIcon />} component={Link} to="/mechanics" />
+          <BottomNavigationButton label="Scenario" icon={<ListIcon />} component={Link} to="/" />
+          <BottomNavigationButton label="Character" icon={<FaceIcon />} component={Link} to="/characters" />
+          <BottomNavigationButton label="Mechanic" icon={<AndroidIcon />} component={Link} to="/mechanics" />
       </BottomNavigation>
     );
   }
 }
 
-SimpleBottomNavigation.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+Footer.propTypes = propTypes;
 
-export default withStyles(styles)(SimpleBottomNavigation);
+export default withStyles(styles)(Footer);
