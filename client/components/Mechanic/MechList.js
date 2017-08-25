@@ -10,6 +10,9 @@ import FavoriteIcon from 'material-ui-icons/Favorite';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
+import { red } from 'material-ui/colors';
+
+const accent = red['A400']; // #FF1744
 
 const styles = theme => ({
     card: {
@@ -17,8 +20,17 @@ const styles = theme => ({
     },
     title: {
         marginLeft: 20,
-        marginTop: 12,
-        fontSize: 20,
+        marginTop: 14,
+        fontSize: 17,
+    },
+    infoname: {
+        fontSize: 16,
+        color: accent,
+        marginTop: 6,
+    },
+    info: {
+        fontSize: 16,
+        marginTop: 10,
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -47,6 +59,10 @@ class MechList extends Component {
 
     render() {
         const classes = this.props.classes;
+        const fullBonus = <span className={classes.infoname}>FB: </span>
+        const movePoint = <span className={classes.infoname}>이동: </span>
+        const skill = <span className={classes.infoname}>특수: </span>
+        const geoState = <span className={classes.infoname}>지형: </span>
         return (
             <div>
                 <br />
@@ -73,15 +89,16 @@ class MechList extends Component {
                     <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
                         <CardContent>
                             <Divider light />
-                            <Typography paragraph type="headline" className={classes.title}>
-                                FULL :
+                            <Typography paragraph type="body2" className={classes.info}>
+                                {fullBonus} 염동무기 공격력 + (염동력 Lv. * 30)
                             </Typography>
-                            <Typography paragraph type="headline" className={classes.title}>
-                                염동무기 공격력 + (염동력 Lv. * 30)
+                            <Divider light />
+                            <Typography paragraph type="body2" className={classes.info}>
+                                {movePoint} 6(공중, 육지) <br />
+                                {skill} 염동필드 S, 분신 <br />
+                                {geoState} AABA
                             </Typography>
-                            <Typography paragraph type="body2">
-                                탑승 가능 파일럿: 
-                            </Typography>
+                            <Divider light />
                         </CardContent>
                     </Collapse>
                 </Card>

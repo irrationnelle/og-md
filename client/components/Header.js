@@ -8,7 +8,7 @@ import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/MoreVert';
 import Menu, { MenuItem } from 'material-ui/Menu';
-import AccountCircleIcon from 'material-ui-icons/AccountCircle';
+import AccountCircleIcon from 'material-ui-icons/LockOpen';
 
 const styles = {
   root: {

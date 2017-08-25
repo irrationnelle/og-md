@@ -6,9 +6,13 @@ import Card, { CardHeader ,CardActions, CardContent } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton'
-import FavoriteIcon from 'material-ui-icons/Favorite';
+import FavoriteBorderIcon from 'material-ui-icons/FavoriteBorder';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
+import { red } from 'material-ui/colors';
+
+const accent = red['A400']; // #FF1744
 
 const styles = theme => ({
     card: {
@@ -20,10 +24,13 @@ const styles = theme => ({
         fontSize: 17,
     },
     infoname: {
-        fontSize: 14,
+        fontSize: 16,
+        color: accent,
+        marginTop: 6,
     },
     info: {
-        fontSize: 14,
+        fontSize: 16,
+        marginTop: 10,
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -56,6 +63,9 @@ class CharList extends Component {
 
     render() {
         const classes = this.props.classes;
+        const aceBonus = <span className={classes.infoname}>AB: </span>
+        const mindCommand = <span className={classes.infoname}>정신: </span>
+        const twinCommand = <span className={classes.infoname}>트윈: </span>
         return (
             <div>
                 <br />
@@ -66,7 +76,7 @@ class CharList extends Component {
                         </Typography>
                         <div className={classes.flexGrow} />
                         <IconButton aria-label="Add to favorites">
-                            <FavoriteIcon />
+                            <FavoriteBorderIcon />
                         </IconButton>
                         <IconButton
                             className={classnames(classes.expand, {
@@ -81,15 +91,16 @@ class CharList extends Component {
                     </CardActions>
                     <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
                         <CardContent>
-                            <Typography paragraph type="headline" className={classes.infoname}>
-                                ACE:
+                            <Divider light />
+                            <Typography paragraph type="body2" className={classes.info}>
+                                {aceBonus} 염동력 레벨 +1
                             </Typography>
-                            <Typography paragraph type="headline" className={classes.info}>
-                                염동력 레벨 +1
+                            <Divider light />
+                            <Typography paragraph type="body2" className={classes.info}>
+                                {mindCommand} 집중 가속 직감 직격 열혈 <br />
+                                {twinCommand} 연격
                             </Typography>
-                            <Typography paragraph type="body2">
-                                탑승 가능 파일럿: 
-                            </Typography>
+                            <Divider light />
                         </CardContent>
                     </Collapse>
                 </Card>
