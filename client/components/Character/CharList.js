@@ -24,12 +24,12 @@ const styles = theme => ({
         fontSize: 17,
     },
     infoname: {
-        fontSize: 16,
+        fontSize: 15,
         color: accent,
-        marginTop: 6,
+        marginTop: 10,
     },
     info: {
-        fontSize: 16,
+        fontSize: 15,
         marginTop: 10,
     },
     expand: {

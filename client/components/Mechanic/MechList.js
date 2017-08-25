@@ -24,12 +24,12 @@ const styles = theme => ({
         fontSize: 17,
     },
     infoname: {
-        fontSize: 16,
+        fontSize: 15,
         color: accent,
-        marginTop: 6,
+        marginTop: 10,
     },
     info: {
-        fontSize: 16,
+        fontSize: 15,
         marginTop: 10,
     },
     expand: {
@@ -94,8 +94,8 @@ class MechList extends Component {
                             </Typography>
                             <Divider light />
                             <Typography paragraph type="body2" className={classes.info}>
-                                {movePoint} 6(공중, 육지) <br />
-                                {skill} 염동필드 S, 분신 <br />
+                                {movePoint} 6 (공중, 육지) <br />
+                                {skill} 염동필드S, 분신 <br />
                                 {geoState} AABA
                             </Typography>
                             <Divider light />
