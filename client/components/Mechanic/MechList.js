@@ -9,6 +9,7 @@ import IconButton from 'material-ui/IconButton'
 import FavoriteIcon from 'material-ui-icons/Favorite';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
 
 const styles = theme => ({
     card: {
@@ -16,8 +17,8 @@ const styles = theme => ({
     },
     title: {
         marginLeft: 20,
+        marginTop: 12,
         fontSize: 20,
-        color: theme.palette.text.secondary,
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -71,8 +72,12 @@ class MechList extends Component {
                     </CardActions>
                     <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
                         <CardContent>
+                            <Divider light />
                             <Typography paragraph type="headline" className={classes.title}>
-                                풀개조 보너스: {this.props.mechanicState}
+                                FULL :
+                            </Typography>
+                            <Typography paragraph type="headline" className={classes.title}>
+                                염동무기 공격력 + (염동력 Lv. * 30)
                             </Typography>
                             <Typography paragraph type="body2">
                                 탑승 가능 파일럿: 

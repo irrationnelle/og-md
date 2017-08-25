@@ -1,14 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import StarIcon from 'material-ui-icons/Star';
+import Card, { CardHeader ,CardActions, CardContent } from 'material-ui/Card';
+import Collapse from 'material-ui/transitions/Collapse';
+import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton'
+import FavoriteIcon from 'material-ui-icons/Favorite';
+import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
+import Typography from 'material-ui/Typography';
 
 const styles = theme => ({
-    root: {
-      width: '100%',
-      maxWidth: 360,
-      background: theme.palette.background.paper,
+    card: {
+        minWidth: 275,
+    },
+    title: {
+        marginLeft: 20,
+        marginTop: 14,
+        fontSize: 17,
+    },
+    infoname: {
+        fontSize: 14,
+    },
+    info: {
+        fontSize: 14,
+    },
+    expand: {
+        transform: 'rotate(0deg)',
+        transition: theme.transitions.create('transform', {
+          duration: theme.transitions.duration.shortest,
+        }),
+    },
+    expandOpen: {
+        transform: 'rotate(180deg)',
+    },
+    flexGrow: {
+        flex: '1 1 auto',
     },
 });
 
@@ -21,27 +48,52 @@ const defaultProps = {
 };
 
 class CharList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isCharacter: true,
-        };
-    }
+    state = { expanded: false };
+    
+    handleExpandClick = () => {
+        this.setState({ expanded: !this.state.expanded });
+    };
 
     render() {
         const classes = this.props.classes;
         return (
-            <List className={classes.root}>
-                <ListItem button>
-                    <ListItemIcon>
-                        <StarIcon />
-                    </ListItemIcon>
-                    <ListItemText inset primary="레오나 거슈타인" />
-                </ListItem>
-                <ListItem button>
-                    <ListItemText inset primary="아리에일 오그" />
-                </ListItem>
-            </List>
+            <div>
+                <br />
+                <Card className={classes.card}>
+                    <CardActions>
+                        <Typography paragraph type="headline" className={classes.title}>
+                            레오나 거슈타인
+                        </Typography>
+                        <div className={classes.flexGrow} />
+                        <IconButton aria-label="Add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                        <IconButton
+                            className={classnames(classes.expand, {
+                            [classes.expandOpen]: this.state.expanded,
+                            })}
+                            onClick={this.handleExpandClick}
+                            aria-expanded={this.state.expanded}
+                            aria-label="Show more"
+                        >
+                            <ExpandMoreIcon />
+                        </IconButton>
+                    </CardActions>
+                    <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
+                        <CardContent>
+                            <Typography paragraph type="headline" className={classes.infoname}>
+                                ACE:
+                            </Typography>
+                            <Typography paragraph type="headline" className={classes.info}>
+                                염동력 레벨 +1
+                            </Typography>
+                            <Typography paragraph type="body2">
+                                탑승 가능 파일럿: 
+                            </Typography>
+                        </CardContent>
+                    </Collapse>
+                </Card>
+          </div>
         );
     }
 }

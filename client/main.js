@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    BrowserRouter as Router,
+    Router,
     Route,
 } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
