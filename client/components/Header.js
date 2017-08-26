@@ -13,6 +13,8 @@ import AccountCircleIcon from 'material-ui-icons/LockOpen';
 const styles = {
   root: {
     width: '100%',
+    top: '0',
+    position: 'fixed',
   },
   flex: {
     flex: 1,

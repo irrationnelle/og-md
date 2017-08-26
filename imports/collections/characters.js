@@ -16,12 +16,12 @@ Characters.schema = new SimpleSchema({
 Meteor.methods({
     'chars.test': function () {
         return Characters.insert({
-            name: '레오나 거슈타인',
-            ace: '염동력 레벨+1',
-            mind: ['집중', '가속', '직감', '직격', '열혈'],
-            twin: '연격',
+            name: '아리에일 오그',
+            ace: '자신의 팀의 원호공격의 데미지 + 10%',
+            mind: ['집중', '가속', '섬광', '필중', '열혈'],
+            twin: '격려',
             stage: 5,
-            route: 'b',
+            route: 'c',
             starred: [],
         });
     },

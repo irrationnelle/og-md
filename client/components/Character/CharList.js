@@ -11,10 +11,17 @@ import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import { red } from 'material-ui/colors';
+import { createContainer } from 'meteor/react-meteor-data';
+
+import Characters from '../../../imports/collections/characters';
 
 const accent = red['A400']; // #FF1744
 
 const styles = theme => ({
+    root: {
+        marginTop: 55,
+        marginBottom: 60,
+    },
     card: {
         minWidth: 275,
     },
@@ -61,50 +68,61 @@ class CharList extends Component {
         this.setState({ expanded: !this.state.expanded });
     };
 
+    renderList() {
+        return this.props.chars.map(char => {
+            const classes = this.props.classes;
+            const aceBonus = <span className={classes.infoname}>AB: </span>
+            const mindCommand = <span className={classes.infoname}>정신: </span>
+            const twinCommand = <span className={classes.infoname}>트윈: </span>
+
+            return (
+                <div>
+                    <br />
+                    <Card className={classes.card}>
+                        <CardActions>
+                            <Typography paragraph type="headline" className={classes.title}>
+                                {char.name}
+                            </Typography>
+                            <div className={classes.flexGrow} />
+                            <IconButton aria-label="Add to favorites">
+                                <FavoriteBorderIcon />
+                            </IconButton>
+                            <IconButton
+                                className={classnames(classes.expand, {
+                                [classes.expandOpen]: this.state.expanded,
+                                })}
+                                onClick={this.handleExpandClick}
+                                aria-expanded={this.state.expanded}
+                                aria-label="Show more"
+                            >
+                                <ExpandMoreIcon />
+                            </IconButton>
+                        </CardActions>
+                        <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
+                            <CardContent>
+                                <Divider light />
+                                <Typography paragraph type="body2" className={classes.info}>
+                                    {aceBonus} {char.ace}
+                                </Typography>
+                                <Divider light />
+                                <Typography paragraph type="body2" className={classes.info}>
+                                    {mindCommand} 집중 가속 직감 직격 열혈 <br />
+                                    {twinCommand} {char.twin}
+                                </Typography>
+                                <Divider light />
+                            </CardContent>
+                        </Collapse>
+                    </Card>
+                </div>      
+            )
+        })
+    }
+
     render() {
-        const classes = this.props.classes;
-        const aceBonus = <span className={classes.infoname}>AB: </span>
-        const mindCommand = <span className={classes.infoname}>정신: </span>
-        const twinCommand = <span className={classes.infoname}>트윈: </span>
         return (
-            <div>
-                <br />
-                <Card className={classes.card}>
-                    <CardActions>
-                        <Typography paragraph type="headline" className={classes.title}>
-                            레오나 거슈타인
-                        </Typography>
-                        <div className={classes.flexGrow} />
-                        <IconButton aria-label="Add to favorites">
-                            <FavoriteBorderIcon />
-                        </IconButton>
-                        <IconButton
-                            className={classnames(classes.expand, {
-                            [classes.expandOpen]: this.state.expanded,
-                            })}
-                            onClick={this.handleExpandClick}
-                            aria-expanded={this.state.expanded}
-                            aria-label="Show more"
-                        >
-                            <ExpandMoreIcon />
-                        </IconButton>
-                    </CardActions>
-                    <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
-                        <CardContent>
-                            <Divider light />
-                            <Typography paragraph type="body2" className={classes.info}>
-                                {aceBonus} 염동력 레벨 +1
-                            </Typography>
-                            <Divider light />
-                            <Typography paragraph type="body2" className={classes.info}>
-                                {mindCommand} 집중 가속 직감 직격 열혈 <br />
-                                {twinCommand} 연격
-                            </Typography>
-                            <Divider light />
-                        </CardContent>
-                    </Collapse>
-                </Card>
-          </div>
+            <div className={this.props.classes.root}>
+                {this.renderList()}
+            </div>
         );
     }
 }
@@ -112,4 +130,10 @@ class CharList extends Component {
 CharList.propTypes = propTypes;
 CharList.defaultProps = defaultProps;
 
-export default withStyles(styles)(CharList);
+const CharContainer = createContainer(() => {
+    Meteor.subscribe('chars');
+
+    return { chars: Characters.find({}).fetch() };
+}, CharList);
+
+export default withStyles(styles)(CharContainer);
