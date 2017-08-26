@@ -41,6 +41,17 @@ class Header extends Component {
         this.setState({ open: false });
     };
 
+    testClick(event) {
+        event.preventDefault();
+
+        Meteor.call('chars.test', (err, charId) => {
+            if(err) {
+                console.log(err);
+            }
+            console.log(charId);   
+        });
+    }
+
     render() {
         const classes = this.props.classes;
         return (
@@ -70,7 +81,7 @@ class Header extends Component {
                         >
                             <MenuItem onClick={this.handleRequestClose}>Profile</MenuItem>
                             <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
-                            <MenuItem onClick={this.handleRequestClose}>Logout</MenuItem>
+                            <MenuItem onClick={this.testClick.bind(this)}>Logout</MenuItem>
                         </Menu>
                     </Toolbar>
                 </AppBar>
