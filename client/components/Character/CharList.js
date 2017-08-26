@@ -19,10 +19,12 @@ const accent = red['A400']; // #FF1744
 
 const styles = theme => ({
     root: {
-        marginTop: 55,
+        marginTop: 65,
         marginBottom: 60,
     },
     card: {
+        marginLeft: 4,
+        marginTop: 7,
         minWidth: 275,
     },
     title: {
@@ -77,7 +79,6 @@ class CharList extends Component {
 
             return (
                 <div>
-                    <br />
                     <Card className={classes.card}>
                         <CardActions>
                             <Typography paragraph type="headline" className={classes.title}>
