@@ -46,11 +46,11 @@ class Header extends Component {
     testClick(event) {
         event.preventDefault();
 
-        Meteor.call('chars.test', (err, charId) => {
+        Meteor.call('mechs.test', (err, mechId) => {
             if(err) {
                 console.log(err);
             }
-            console.log(charId);   
+            console.log(mechId);   
         });
     }
 

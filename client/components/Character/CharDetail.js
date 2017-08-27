@@ -6,20 +6,21 @@ import Card, { CardHeader ,CardActions, CardContent } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton'
-import FavoriteIcon from 'material-ui-icons/Favorite';
+import FavoriteBorderIcon from 'material-ui-icons/FavoriteBorder';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import { red } from 'material-ui/colors';
+import { createContainer } from 'meteor/react-meteor-data';
+
+import Characters from '../../../imports/collections/characters';
 
 const accent = red['A400']; // #FF1744
 
 const styles = theme => ({
-    root: {
-        marginTop: 65,
-        marginBottom: 60,
-    },
     card: {
+        marginLeft: 4,
+        marginTop: 7,
         minWidth: 275,
     },
     title: {
@@ -54,7 +55,11 @@ const propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-class MechList extends Component {
+const defaultProps = {
+    classes: undefined,
+};
+
+class CharDetail extends Component {
     state = { expanded: false };
     
     handleExpandClick = () => {
@@ -63,20 +68,23 @@ class MechList extends Component {
 
     render() {
         const classes = this.props.classes;
-        const fullBonus = <span className={classes.infoname}>FB: </span>
-        const movePoint = <span className={classes.infoname}>이동: </span>
-        const skill = <span className={classes.infoname}>특수: </span>
-        const geoState = <span className={classes.infoname}>지형: </span>
+        const aceBonus = <span className={classes.infoname}>AB: </span>
+        const mindCommand = <span className={classes.infoname}>정신: </span>
+        const twinCommand = <span className={classes.infoname}>트윈: </span>
+
+        const char = this.props.data;
+
         return (
-            <div className={this.props.classes.root}>
+            // TODO: MAKE CHAR DETAIL COMPONENT AND TRANSFER KEY PROPS
+            <div>
                 <Card className={classes.card}>
                     <CardActions>
                         <Typography paragraph type="headline" className={classes.title}>
-                            에그젝스바인
+                            {char.name}
                         </Typography>
                         <div className={classes.flexGrow} />
                         <IconButton aria-label="Add to favorites">
-                            <FavoriteIcon />
+                            <FavoriteBorderIcon />
                         </IconButton>
                         <IconButton
                             className={classnames(classes.expand, {
@@ -85,31 +93,36 @@ class MechList extends Component {
                             onClick={this.handleExpandClick}
                             aria-expanded={this.state.expanded}
                             aria-label="Show more"
+                            name={char._id}
                         >
                             <ExpandMoreIcon />
                         </IconButton>
                     </CardActions>
-                    <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
+                    <Collapse
+                        in={this.state.expanded}
+                        transitionDuration="auto"
+                        unmountOnExit
+                    >
                         <CardContent>
                             <Divider light />
                             <Typography paragraph type="body2" className={classes.info}>
-                                {fullBonus} 염동무기 공격력 + (염동력 Lv. * 30)
+                                {aceBonus} {char.ace}
                             </Typography>
                             <Divider light />
                             <Typography paragraph type="body2" className={classes.info}>
-                                {movePoint} 6 (공중, 육지) <br />
-                                {skill} 염동필드S, 분신 <br />
-                                {geoState} AABA
+                                {mindCommand} 집중 가속 직감 직격 열혈 <br />
+                                {twinCommand} {char.twin}
                             </Typography>
                             <Divider light />
                         </CardContent>
                     </Collapse>
                 </Card>
-          </div>
+            </div>      
         );
     }
 }
 
-MechList.propTypes = propTypes;
+CharDetail.propTypes = propTypes;
+CharDetail.defaultProps = defaultProps;
 
-export default withStyles(styles)(MechList);
+export default withStyles(styles)(CharDetail);
