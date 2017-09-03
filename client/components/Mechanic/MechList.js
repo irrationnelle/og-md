@@ -6,7 +6,7 @@ import Card, { CardHeader ,CardActions, CardContent } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton'
-import FavoriteIcon from 'material-ui-icons/Favorite';
+import FavoriteBorderIcon from 'material-ui-icons/FavoriteBorder';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
@@ -76,7 +76,7 @@ class MechList extends Component {
                         </Typography>
                         <div className={classes.flexGrow} />
                         <IconButton aria-label="Add to favorites">
-                            <FavoriteIcon />
+                            <FavoriteBorderIcon />
                         </IconButton>
                         <IconButton
                             className={classnames(classes.expand, {

@@ -73,6 +73,9 @@ class CharDetail extends Component {
         const twinCommand = <span className={classes.infoname}>트윈: </span>
 
         const char = this.props.data;
+        char.mind = char.mind.map((mind, i) => {
+            return (<span key={i}> {mind} </span>);
+        });
 
         return (
             // TODO: MAKE CHAR DETAIL COMPONENT AND TRANSFER KEY PROPS
@@ -110,7 +113,7 @@ class CharDetail extends Component {
                             </Typography>
                             <Divider light />
                             <Typography paragraph type="body2" className={classes.info}>
-                                {mindCommand} 집중 가속 직감 직격 열혈 <br />
+                                {mindCommand} {char.mind} <br />
                                 {twinCommand} {char.twin}
                             </Typography>
                             <Divider light />
