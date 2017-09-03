@@ -5,6 +5,8 @@ import Button from 'material-ui/Button';
 import Header from './Header';
 import Footer from './Footer';
 import Contents from './Contents';
+
+import Scenario from './Scenario';
 import CharList from './Character/CharList';
 import MechList from './Mechanic/MechList';
 
@@ -14,7 +16,7 @@ const App = () => {
             <Header />
             <div>
                 <Switch>
-                    <Route exact path="/" component={Contents} />
+                    <Route exact path="/" component={Scenario} />
                     <Route path="/characters" component={CharList} />
                     <Route path="/mechanics" component={MechList} />
                 </Switch>
