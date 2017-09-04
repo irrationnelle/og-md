@@ -8,10 +8,19 @@
 
 # Installation
 
-### It is required to install [Meteor](https://www.meteor.com/install), first of all
+### **It is required to install [Meteor](https://www.meteor.com/install), first of all**
  
-`npm install`
+```bash
+$ npm install
+```
 
 # Run the app
 
-`meteor`
+```bash
+$ meteor
+```
+
+# Screenshot
+
+![Prototype](https://user-images.githubusercontent.com/10165823/30025404-5f2b455c-91b3-11e7-91db-121ef969f574.gif)
+
