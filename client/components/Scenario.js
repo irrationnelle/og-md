@@ -28,10 +28,14 @@ const styles = theme => ({
 });
 
 class NestedList extends React.Component {
-  state = { open: true };
+  state = { open: false, land: false };
 
   handleClick = () => {
     this.setState({ open: !this.state.open });
+  };
+
+  handleLandClick = () => {
+    this.setState({ land: !this.state.land });
   };
 
   render() {
@@ -39,13 +43,21 @@ class NestedList extends React.Component {
     return (
       <List className={classes.root} subheader={<ListSubheader>시나리오 분기</ListSubheader>}>
         <Divider />
-        <ListItem button>
+        <ListItem button onClick={this.handleLandClick}>
           <ListItemIcon>
             <SendIcon />
           </ListItemIcon>
           <ListItemText inset primary="지상" />
-          <ExpandMore />
+          {this.state.land ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
+        <Collapse in={this.state.land} transitionDuration="auto" unmountOnExit>
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText inset primary="1화" />
+          </ListItem>
+        </Collapse>
         <ListItem button>
           <ListItemIcon>
             <DraftsIcon />
