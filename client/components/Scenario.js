@@ -18,6 +18,7 @@ const styles = theme => ({
   root: {
     width: '100%',
     marginTop: 55,
+    marginBottom: 60,
     minWidth: '100%',
     background: theme.palette.background.paper,
   },
@@ -68,6 +69,52 @@ class NestedList extends React.Component {
             <ListItemText inset primary="10화" />
           </ListItem>
         </Collapse>
+        <Divider />
+        <ListItem button>
+            <ListItemIcon>
+                <SendIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="파리" />
+            <ExpandMore />
+        </ListItem>
+        <ListItem button>
+            <ListItemIcon>
+                <SendIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="카라치" />
+            <ExpandMore />
+        </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="공통" />
+          <ExpandMore />
+        </ListItem>
+        <Divider />
+        <ListItem button>
+            <ListItemIcon>
+                <SendIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="바랄" />
+            <ExpandMore />
+        </ListItem>
+        <ListItem button>
+            <ListItemIcon>
+                <SendIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="달" />
+            <ExpandMore />
+        </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="공통" />
+          <ExpandMore />
+        </ListItem>
       </List>
     );
   }
