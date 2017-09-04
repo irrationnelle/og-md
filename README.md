@@ -20,6 +20,8 @@ $ npm install
 $ meteor
 ```
 
+### And then, it is possible to connect `http://localhost:3000/`
+
 # Screenshot
 
 ![Prototype](https://user-images.githubusercontent.com/10165823/30025404-5f2b455c-91b3-11e7-91db-121ef969f574.gif)
