@@ -43,14 +43,14 @@ class NestedList extends React.Component {
             <SendIcon />
           </ListItemIcon>
           <ListItemText inset primary="지상" />
-          {this.state.open ? <ExpandLess /> : <ExpandMore />}
+          <ExpandMore />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <DraftsIcon />
           </ListItemIcon>
           <ListItemText inset primary="우주" />
-          {this.state.open ? <ExpandLess /> : <ExpandMore />}
+          <ExpandMore />
         </ListItem>
         <Divider />
         <ListItem button onClick={this.handleClick}>
