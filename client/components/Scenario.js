@@ -4,15 +4,20 @@ import { withStyles } from 'material-ui/styles';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Collapse from 'material-ui/transitions/Collapse';
-import InboxIcon from 'material-ui-icons/MoveToInbox';
-import DraftsIcon from 'material-ui-icons/Drafts';
-import SendIcon from 'material-ui-icons/Send';
+
+import MapIcon from 'material-ui-icons/Map';
+import TerrainIcon from 'material-ui-icons/Terrain';
+import LanguageIcon from 'material-ui-icons/Language';
+import Brightness2Icon from 'material-ui-icons/Brightness2';
+import LocalFloristIcon from 'material-ui-icons/LocalFlorist';
+import LocalBarIcon from 'material-ui-icons/LocalBar';
+import DomainIcon from 'material-ui-icons/Domain';
+import PlaceIcon from 'material-ui-icons/Place';
 
 import Divider from 'material-ui/Divider';
 
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
-import StarBorder from 'material-ui-icons/StarBorder';
 
 const styles = theme => ({
   root: {
@@ -45,7 +50,7 @@ class NestedList extends React.Component {
         <Divider />
         <ListItem button onClick={this.handleLandClick}>
           <ListItemIcon>
-            <SendIcon />
+            <TerrainIcon />
           </ListItemIcon>
           <ListItemText inset primary="지상" />
           {this.state.land ? <ExpandLess /> : <ExpandMore />}
@@ -53,14 +58,14 @@ class NestedList extends React.Component {
         <Collapse in={this.state.land} transitionDuration="auto" unmountOnExit>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
-              <StarBorder />
+              <PlaceIcon />
             </ListItemIcon>
             <ListItemText inset primary="1화" />
           </ListItem>
         </Collapse>
         <ListItem button>
           <ListItemIcon>
-            <DraftsIcon />
+            <LanguageIcon />
           </ListItemIcon>
           <ListItemText inset primary="우주" />
           <ExpandMore />
@@ -68,7 +73,7 @@ class NestedList extends React.Component {
         <Divider />
         <ListItem button onClick={this.handleClick}>
           <ListItemIcon>
-            <InboxIcon />
+            <MapIcon />
           </ListItemIcon>
           <ListItemText inset primary="공통" />
           {this.state.open ? <ExpandLess /> : <ExpandMore />}
@@ -76,7 +81,7 @@ class NestedList extends React.Component {
         <Collapse in={this.state.open} transitionDuration="auto" unmountOnExit>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
-              <StarBorder />
+              <PlaceIcon />
             </ListItemIcon>
             <ListItemText inset primary="10화" />
           </ListItem>
@@ -84,14 +89,14 @@ class NestedList extends React.Component {
         <Divider />
         <ListItem button>
             <ListItemIcon>
-                <SendIcon />
+                <LocalBarIcon />
             </ListItemIcon>
             <ListItemText inset primary="파리" />
             <ExpandMore />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <SendIcon />
+                <DomainIcon />
             </ListItemIcon>
             <ListItemText inset primary="카라치" />
             <ExpandMore />
@@ -99,7 +104,7 @@ class NestedList extends React.Component {
         <Divider />
         <ListItem button>
           <ListItemIcon>
-            <InboxIcon />
+            <MapIcon />
           </ListItemIcon>
           <ListItemText inset primary="공통" />
           <ExpandMore />
@@ -107,14 +112,14 @@ class NestedList extends React.Component {
         <Divider />
         <ListItem button>
             <ListItemIcon>
-                <SendIcon />
+                <LocalFloristIcon />
             </ListItemIcon>
             <ListItemText inset primary="바랄" />
             <ExpandMore />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <SendIcon />
+                <Brightness2Icon />
             </ListItemIcon>
             <ListItemText inset primary="달" />
             <ExpandMore />
@@ -122,7 +127,7 @@ class NestedList extends React.Component {
         <Divider />
         <ListItem button>
           <ListItemIcon>
-            <InboxIcon />
+            <MapIcon />
           </ListItemIcon>
           <ListItemText inset primary="공통" />
           <ExpandMore />
