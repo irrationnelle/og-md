@@ -24,5 +24,5 @@ $ meteor
 
 # Screenshot
 
-![Prototype](https://user-images.githubusercontent.com/10165823/30031443-6ddb73e2-91cc-11e7-8e75-bc8de06e0222.gif)
+<img src="https://user-images.githubusercontent.com/10165823/30031443-6ddb73e2-91cc-11e7-8e75-bc8de06e0222.gif" width="325">
 
