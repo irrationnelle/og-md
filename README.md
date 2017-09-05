@@ -1,5 +1,12 @@
 # About
 
+  This guide web app is aimed to guide character and mechanic skill information depending on stage progression for Super Robot Wars OG The Moon Dwellers without unnecessary other informations like the story spoiler.
+
+  1. Select a current stage scenario about which the player want to know infos
+  2. And then, character and mechanic infos are updated on the stage circumstances.
+
+  ### Development Environment
+
 * [Meteor](https://www.meteor.com/)
 * [React](https://github.com/facebook/react)
 * [React Router v4](https://github.com/ReactTraining/react-router)
