@@ -62,6 +62,18 @@ class NestedList extends React.Component {
             </ListItemIcon>
             <ListItemText inset primary="1화" />
           </ListItem>
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <PlaceIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="2화" />
+          </ListItem>
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <PlaceIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="3화" />
+          </ListItem>
         </Collapse>
         <ListItem button>
           <ListItemIcon>
