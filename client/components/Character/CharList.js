@@ -7,48 +7,35 @@ import Characters from '../../../imports/collections/characters';
 import CharDetail from './CharDetail';
 
 const styles = theme => ({
-    root: {
-        marginTop: 65,
-        marginBottom: 60,
-    },
+  root: {
+    marginTop: 65,
+    marginBottom: 60,
+  },
 });
 
 const propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 const defaultProps = {
-    classes: undefined,
+  classes: undefined,
 };
 
 class CharList extends Component {
-    render() {
-        const mapToComponent = (data) => {
-            return data.map((char, i) => {
-                return (
-                    <CharDetail
-                        key={char._id}
-                        data={char}
-                    />
-                );
-            });
-        }
+  render() {
+    const mapToComponent = data => data.map((char, i) => <CharDetail key={char._id} data={char} />);
 
-        return (
-            <div className={this.props.classes.root}>
-                {mapToComponent(this.props.chars)}
-            </div>
-        );
-    }
+    return <div className={this.props.classes.root}>{mapToComponent(this.props.chars)}</div>;
+  }
 }
 
 CharList.propTypes = propTypes;
 CharList.defaultProps = defaultProps;
 
 const CharContainer = createContainer(() => {
-    Meteor.subscribe('chars');
+  Meteor.subscribe('chars');
 
-    return { chars: Characters.find({}).fetch() };
+  return { chars: Characters.find({}).fetch() };
 }, CharList);
 
 export default withStyles(styles)(CharContainer);

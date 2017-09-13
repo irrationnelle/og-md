@@ -22,74 +22,85 @@ const styles = {
 };
 
 const propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 const defaultProps = {
-    classes: undefined,
+  classes: undefined,
 };
 
 class Header extends Component {
-    state = {
-        anchorEl: undefined,
-        open: false,
-    };
-    
-    handleClick = event => {
-        this.setState({ open: true, anchorEl: event.currentTarget });
-    };
-    
-    handleRequestClose = () => {
-        this.setState({ open: false });
-    };
+  state = {
+    anchorEl: undefined,
+    open: false,
+  };
 
-    testClick(event) {
-        event.preventDefault();
+  handleClick = event => {
+    this.setState({ open: true, anchorEl: event.currentTarget });
+  };
 
-        Meteor.call('mechs.test', (err, mechId) => {
-            if(err) {
-                console.log(err);
-            }
-            console.log(mechId);   
-        });
-    }
+  handleRequestClose = () => {
+    this.setState({ open: false });
+  };
 
-    render() {
-        const classes = this.props.classes;
-        return (
-            <div className={classes.root}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <Typography type="title" color="inherit" className={classes.flex}>
-                            SRW OG MD
-                        </Typography>
-                        <IconButton color="contrast" aria-label="Login">
-                            <AccountCircleIcon />
-                        </IconButton>
-                        <IconButton
-                            color="contrast"
-                            aria-label="Menu"
-                            aria-owns={this.state.open ? 'simple-menu' : null}
-                            aria-haspopup="true"
-                            onClick={this.handleClick}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="simple-menu"
-                            anchorEl={this.state.anchorEl}
-                            open={this.state.open}
-                            onRequestClose={this.handleRequestClose}
-                        >
-                            <MenuItem onClick={this.handleRequestClose}>Profile</MenuItem>
-                            <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
-                            <MenuItem onClick={this.testClick.bind(this)}>Logout</MenuItem>
-                        </Menu>
-                    </Toolbar>
-                </AppBar>
-            </div>
-        );
-    }
+  addMech(event) {
+    event.preventDefault();
+
+    Meteor.call('mechs.test', (err, mechId) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(mechId);
+    });
+  }
+
+  addChar(event) {
+    event.preventDefault();
+
+    Meteor.call('chars.test', (err, charId) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(charId);
+    });
+  }
+
+  render() {
+    const classes = this.props.classes;
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography type="title" color="inherit" className={classes.flex}>
+              SRW OG MD
+            </Typography>
+            <IconButton color="contrast" aria-label="Login">
+              <AccountCircleIcon />
+            </IconButton>
+            <IconButton
+              color="contrast"
+              aria-label="Menu"
+              aria-owns={this.state.open ? 'simple-menu' : null}
+              aria-haspopup="true"
+              onClick={this.handleClick}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="simple-menu"
+              anchorEl={this.state.anchorEl}
+              open={this.state.open}
+              onRequestClose={this.handleRequestClose}
+            >
+              <MenuItem onClick={this.handleRequestClose}>Profile</MenuItem>
+              <MenuItem onClick={this.addMech.bind(this)}>Add Mechanic</MenuItem>
+              <MenuItem onClick={this.addChar.bind(this)}>Add Character</MenuItem>
+            </Menu>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 Header.propTypes = propTypes;

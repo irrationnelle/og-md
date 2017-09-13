@@ -1,0 +1,22 @@
+[
+  {
+    "name": "지가리온",
+    "full": "염동무기 공격력 + (염동력 Lv. * 30)",
+    "move": "7 (공중, 육지)",
+    "skill": [],
+    "geo": "AABA",
+    "stage": 6,
+    "route": ["space", "common"],
+    "starred": []
+  },
+  {
+    "name": "그랑티드",
+    "full": "격투무기 공격력 +200",
+    "move": "5 (육지)",
+    "skill": ["오르곤 클라우드"],
+    "geo": "BABA",
+    "stage": 8,
+    "route": ["land", "common"],
+    "starred": []
+  }
+]
