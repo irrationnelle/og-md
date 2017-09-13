@@ -81,7 +81,7 @@ class CharDetail extends Component {
       // TODO: MAKE CHAR DETAIL COMPONENT AND TRANSFER KEY PROPS
       <div>
         <Card className={classes.card}>
-          <CardActions>
+          <CardActions onClick={this.handleExpandClick}>
             <Typography paragraph type="headline" className={classes.title}>
               {char.name}
             </Typography>
@@ -93,7 +93,6 @@ class CharDetail extends Component {
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
               })}
-              onClick={this.handleExpandClick}
               aria-expanded={this.state.expanded}
               aria-label="Show more"
               name={char._id}
