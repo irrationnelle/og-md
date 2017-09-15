@@ -12,8 +12,11 @@
     "meteor-node-stubs": "^0.2.11",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
+    "react-addons-update": "^15.6.0",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.15.6"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
