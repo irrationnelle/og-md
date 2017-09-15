@@ -25,6 +25,9 @@ Meteor.methods({
       starred: [],
     });
   },
+  'chars.select': function (stageNum, route) {
+    return Characters.find({ stage: { $lte: stageNum }, route });
+  },
   'chars.star': function (character, username) {
     return Characters.update(character._id, { $push: { starred: username } });
   },
